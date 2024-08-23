@@ -2,11 +2,9 @@ package org.ecommerce.services.impl;
 
 import lombok.Getter;
 import org.ecommerce.util.CrudOperations;
+import org.ecommerce.util.Error;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Getter
 public abstract class CrudOperationsImpl <T> implements CrudOperations<T, Long> {
@@ -22,29 +20,26 @@ public abstract class CrudOperationsImpl <T> implements CrudOperations<T, Long> 
     }
 
     @Override
-    public T findById(Long id) {
-        if (existsById(id))
-            return db.get(id);
-        else
-            throw new IllegalArgumentException("Entity not found for update.");
+    public Optional<T> findById(Long id) {
+        return Optional.ofNullable(db.get(id));
+    }
+
+    @Override
+    public void update(Long id, T entity) {
+        db.put(id, entity);
     }
 
     @Override
     public void deleteById(Long id) {
-        if (existsById(id))
-            db.remove(id);
-        else
-            throw new IllegalArgumentException("Entity not found for delete.");
-
+        findById(id)
+                .ifPresentOrElse((user) -> db.remove(id),
+                        () -> {throw new NoSuchElementException(Error.ENTITY_NOT_FOUND.getDescription());
+                });
     }
 
     @Override
     public List<T> findAll() {
         return new ArrayList<>(db.values());
-    }
-
-    private boolean existsById(Long id) {
-        return db.containsKey(id);
     }
 
     private Long generateId() {
