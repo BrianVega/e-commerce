@@ -1,4 +1,4 @@
-package org.ecommerce.util;
+package org.ecommerce.Enums;
 
 public enum Error {
     ENTITY_NOT_FOUND("Entity not found"),

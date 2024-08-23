@@ -2,7 +2,7 @@ package org.ecommerce.services.impl;
 
 import org.ecommerce.repositories.UserRepository;
 import org.ecommerce.services.PasswordService;
-import org.ecommerce.util.Error;
+import org.ecommerce.Enums.Error;
 
 import java.util.HashMap;
 import java.util.Map;

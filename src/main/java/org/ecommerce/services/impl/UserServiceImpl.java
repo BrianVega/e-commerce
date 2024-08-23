@@ -6,10 +6,9 @@ import org.ecommerce.repositories.UserRepository;
 import org.ecommerce.services.EmailService;
 import org.ecommerce.services.PasswordService;
 import org.ecommerce.services.UserService;
-import org.ecommerce.util.Error;
+import org.ecommerce.Enums.Error;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class UserServiceImpl implements UserService<User> {

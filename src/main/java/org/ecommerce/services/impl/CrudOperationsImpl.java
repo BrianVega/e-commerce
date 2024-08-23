@@ -2,7 +2,7 @@ package org.ecommerce.services.impl;
 
 import lombok.Getter;
 import org.ecommerce.util.CrudOperations;
-import org.ecommerce.util.Error;
+import org.ecommerce.Enums.Error;
 
 import java.util.*;
 

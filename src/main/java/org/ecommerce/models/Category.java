@@ -2,7 +2,7 @@ package org.ecommerce.models;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.ecommerce.util.CategoryType;
+import org.ecommerce.Enums.CategoryType;
 
 @Setter
 @Getter
