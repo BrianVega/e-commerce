@@ -24,27 +24,6 @@ public class UserServiceImpl implements UserService<User> {
         this.emailService = emailService;
     }
 
-
-    @Override
-    public User save(User entity) {
-       return userRepository.save(entity);
-    }
-
-    @Override
-    public User findById(Long id) {
-        return userRepository.findById(id);
-    }
-
-    @Override
-    public void deleteById(Long id) {
-        userRepository.deleteById(id);
-    }
-
-    @Override
-    public List<User> findAll() {
-        return userRepository.findAll();
-    }
-
     public Map<String, String> generateCustomer(Customer customer) {
         Map<String, String> result = new HashMap<>();
         if (!emailService.meetsBusinessRules(customer.getEmail()))
@@ -52,7 +31,12 @@ public class UserServiceImpl implements UserService<User> {
         if (!passwordService.meetsBusinessRules(customer.getPassword()))
             result.put("error", Error.PASSWORD_FORMAT.getDescription());
         if (result.isEmpty())
-            result.put("generatedCustomer", String.valueOf(save(customer)));
+            result.put("generatedCustomer", String.valueOf(userRepository.save(customer)));
         return result;
+    }
+
+    @Override
+    public boolean meetsBusinessRules(User obj) {
+        return false;
     }
 }
