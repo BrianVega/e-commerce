@@ -11,6 +11,7 @@ public class Customer extends User {
     private String phoneNumber;
     private String address;
     private List<String> preferences;
+    private List<Order> ordersHistory;
 
     public Customer(Long id, String firstName, String lastName, String email, String password, String phoneNumber, String address, List<String> preferences) {
         super(id, firstName, lastName, email, password);
