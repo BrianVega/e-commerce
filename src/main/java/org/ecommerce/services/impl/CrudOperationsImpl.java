@@ -1,5 +1,6 @@
 package org.ecommerce.services.impl;
 
+import lombok.Getter;
 import org.ecommerce.util.CrudOperations;
 
 import java.util.ArrayList;
@@ -7,7 +8,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public abstract class CrudOperationsImpl <T> implements CrudOperations<T> {
+@Getter
+public abstract class CrudOperationsImpl <T> implements CrudOperations<T, Long> {
 
     static Long id = 0L;
     Map<Long, T> db = new HashMap<>();
@@ -39,10 +41,6 @@ public abstract class CrudOperationsImpl <T> implements CrudOperations<T> {
     @Override
     public List<T> findAll() {
         return new ArrayList<>(db.values());
-    }
-
-    public Map<Long, T> getDb() {
-        return db;
     }
 
     private boolean existsById(Long id) {
