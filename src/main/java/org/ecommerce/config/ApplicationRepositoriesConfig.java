@@ -10,6 +10,7 @@ import org.ecommerce.util.database.Operations;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.Primary;
 
 @Configuration
 @Import(Operations.class)

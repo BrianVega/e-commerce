@@ -1,12 +1,15 @@
 package org.ecommerce.config;
 
+import com.zaxxer.hikari.HikariDataSource;
 import org.ecommerce.message.broker.MessageQueue;
+import org.ecommerce.models.Customer;
 import org.ecommerce.models.Manager;
 import org.ecommerce.models.Order;
 import org.ecommerce.models.User;
 import org.ecommerce.repositories.inmemory.*;
 import org.ecommerce.services.*;
 import org.ecommerce.services.impl.*;
+import org.ecommerce.util.database.Operations;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
